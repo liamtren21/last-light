@@ -1,0 +1,31 @@
+{
+  "fps": 30,
+  "totalFrames": 906,
+  "segments": [
+    {
+      "text": "The storm has cut the coast off. The last ferry is overdue. Six people are waiting under the shelter.",
+      "from": 0,
+      "frames": 207
+    },
+    {
+      "text": "This is Mira. She has a map, a radio, and a little daylight left. She needs someone to make a plan with her.",
+      "from": 207,
+      "frames": 214
+    },
+    {
+      "text": "Tell her where to meet. What matters most. And why.",
+      "from": 421,
+      "frames": 123
+    },
+    {
+      "text": "When you return, your promise will still matter. Change the plan, and she must remember the change.",
+      "from": 544,
+      "frames": 219
+    },
+    {
+      "text": "The tide keeps moving. What will you ask her to remember?",
+      "from": 763,
+      "frames": 143
+    }
+  ]
+}

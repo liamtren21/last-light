@@ -1,0 +1,19 @@
+.crossing-gate{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:24px;background:rgba(23,30,30,.65)}
+.arrival-card .crossing-secondary{display:block;width:max-content;max-width:100%;min-height:44px;margin-top:10px}.arrival-card{scrollbar-width:thin}
+.arrival-card h1{font-size:clamp(28px,3vw,40px);letter-spacing:0}.arrival-card label{display:block;margin-top:24px;font-size:15px}.arrival-input{width:100%;box-sizing:border-box;border:0;border-bottom:2px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);padding:14px 2px;font:inherit;font-size:22px}.arrival-input:focus-visible{outline:2px solid var(--brick);outline-offset:4px}.arrival-error{color:var(--brick);font-size:15px}
+.crossing-card{width:min(590px,100%);max-height:calc(100dvh - 48px);overflow:auto;padding:38px 46px;background:var(--paper-light) url('/assets/ui/paper-grain.svg');border:2px solid var(--ink);outline:1px solid var(--paper);outline-offset:5px;box-shadow:5px 7px 0 rgba(17,23,23,.22);text-align:left}
+.crossing-eyebrow{font:11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--brick)}
+.crossing-card h1{font-size:clamp(34px,4vw,50px);font-weight:500;letter-spacing:.06em;margin:22px 0 12px;line-height:1.1}
+.gate-chapter h1{letter-spacing:0;font-size:clamp(30px,3vw,42px)}
+.crossing-ink-rule{height:3px;background:var(--ink);clip-path:polygon(0 50%,22% 0,58% 45%,100% 5%,99% 85%,38% 75%,0 100%);margin:18px 0 24px}
+.crossing-card>p:not(.crossing-eyebrow){line-height:1.55;font-size:18px}
+.crossing-primary{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;padding:13px 18px;margin-top:28px;color:var(--paper-light);background:var(--brick) url('/assets/ui/send-stamp.svg') center/100% 100%;border:2px solid var(--ink);font-size:19px}
+.crossing-secondary{border:0;border-bottom:1px solid var(--ink);padding:12px 0;background:transparent;margin:10px 0;font-size:16px}
+.crossing-card>.crossing-footnote,.crossing-card>.crossing-saved{font-size:13px;color:var(--deep)}
+.game-shell[data-transition=out] .scene-art,.game-shell[data-transition=out] .dialogue-paper{opacity:0}
+.scene-art,.dialogue-paper{transition:opacity .3s ease}
+.recap-panel{border-top:1px solid var(--ink);padding-top:16px;margin-top:18px}
+.dialogue-paper[data-view=journal],.dialogue-paper[data-view=settings]{max-height:70dvh;overflow:auto}
+.recap-panel h2{font-size:22px;font-weight:500;margin:0 0 12px}.recap-panel details{border-bottom:1px solid #25292555;padding:10px 0}.recap-panel summary{cursor:pointer;min-height:44px;display:list-item;line-height:1.7}.recap-scene{padding:6px 12px;border-left:2px solid var(--brick);margin:14px 0}.recap-scene h3{font:11px var(--mono);letter-spacing:.1em}.recap-scene p{line-height:1.6}
+@media(max-width:700px){.crossing-card{padding:26px 24px}.crossing-gate{padding:16px}}
+@media(prefers-reduced-motion:reduce){.scene-art,.dialogue-paper{transition:none}}

@@ -1,0 +1,66 @@
+/* Approved concept: paper fibres, hand-drawn ink, and a worn red printed stamp. */
+.dialogue-paper {
+  background: #f1e5ce url('/assets/ui/paper-grain.svg') repeat;
+  margin-bottom: 28px;
+  padding-top: 27px;
+  padding-bottom: 23px;
+  box-shadow: none;
+}
+.composer { gap: 20px; margin-top: 12px; min-height: 60px; }
+.composer-chevron { width: 14px; flex: 0 0 14px; height: 30px; transform: none; }
+.composer-chevron svg { width: 14px; height: 30px; display: block; }
+.composer input {
+  height: 57px;
+  padding: 0 0 7px 4px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(18px, 1.5vw, 25px);
+  background: url('/assets/ui/ink-baseline.svg') left bottom / 100% 6px no-repeat;
+  border: 0;
+}
+.composer input::placeholder { color: #7c766c; }
+.composer input:focus, .composer input:focus-visible {
+  background-size: 100% 6px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.composer:focus-within .composer-chevron { color: #963d2d; }
+.composer input:focus-visible { background-position: left calc(100% - 2px); }
+.send-stamp {
+  flex: 0 0 170px;
+  min-width: 170px;
+  height: 60px;
+  padding: 0 17px 2px;
+  margin-left: 3px;
+  border: 0;
+  border-radius: 0;
+  background: url('/assets/ui/send-stamp.svg') center / 100% 100% no-repeat;
+  color: #f2e8d2;
+  clip-path: none;
+  box-shadow: none;
+  outline: none;
+  transform: none;
+  gap: 11px;
+  font-family: Georgia, 'Source Serif 4', serif;
+  font-size: 23px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .09em;
+}
+.send-stamp::before, .send-stamp::after { content: none; }
+.send-stamp:hover:not(:disabled) {
+  background: url('/assets/ui/send-stamp.svg') center / 100% 100% no-repeat;
+  filter: brightness(.92);
+}
+.send-stamp:active:not(:disabled) { transform: translateY(1px); }
+.send-stamp:disabled { opacity: 1; }
+.send-stamp:disabled > span { opacity: .74; }
+.send-stamp:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; box-shadow: none; }
+.send-arrow { width: 25px; height: 20px; display: flex; align-items: center; }
+.send-arrow svg { display: block; width: 25px; height: 20px; }
+@media(max-width:700px) {
+  .dialogue-paper { margin-bottom: 10px; padding-top: 18px; padding-bottom: 17px; }
+  .composer { gap: 9px; margin-top: 8px; min-height: 52px; }
+  .composer input { height: 49px; font-size: 18px; padding-left: 1px; }
+  .send-stamp { flex-basis: 108px; min-width: 108px; height: 48px; margin-left: 0; padding: 0 9px 1px; gap: 5px; font-size: 16px; }
+  .send-arrow, .send-arrow svg { width: 19px; height: 17px; }
+}

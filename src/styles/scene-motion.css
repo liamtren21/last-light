@@ -1,0 +1,16 @@
+/* Drawn sprite frames: no pan, scale, sway, or face morph. */
+.scene-art,.scene-art.art-tower,.scene-art.art-signal{background-image:none}
+.scene-backdrop.sprite-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;z-index:-2;animation:none;transform:none;background:#58676a}
+.mira-portrait.mira-sprite{animation:none;transform:none;height:100%;max-height:100%;max-width:54%;right:10%;bottom:-7px;filter:none}
+@media(max-width:700px){.scene-backdrop.sprite-backdrop{object-position:48% center}.mira-portrait.mira-sprite{height:76%;max-width:90%;right:-6%;bottom:-7px}}
+.art-signal .mira-sprite{filter:brightness(.86)}
+.mira-portrait.mira-sprite[data-art-version$="-v4"]{height:140%;max-height:140%;bottom:-25%}
+@media(max-width:700px){.mira-portrait.mira-sprite[data-art-version$="-v4"]{height:104%;max-height:104%;bottom:-22%}}
+.art-signal .masthead{background:#efe7d3 url("/assets/ui/paper-grain.svg");padding:8px 12px;clip-path:polygon(1% 2%,99% 0,100% 97%,0 100%)}
+
+/* One camera box for poses and expressions. These offsets align the old
+   expression eye-line to the new pose camera without resampling artwork. */
+.mira-stage{position:absolute;right:10%;bottom:-38%;height:140%;aspect-ratio:1;max-width:54%;z-index:1;pointer-events:none}
+.mira-stage .mira-portrait.mira-sprite{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;object-position:center;filter:none}
+.art-signal .mira-stage .mira-sprite{filter:brightness(.86)}
+@media(max-width:700px){.mira-stage{height:auto;width:90%;max-width:90%;right:-6%;bottom:-26%}}

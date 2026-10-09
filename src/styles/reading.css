@@ -1,0 +1,8 @@
+.dialogue-reader{position:relative;max-width:1080px}
+.reader-measure{visibility:hidden}.reader-ink{position:absolute;inset:0}.chapter-checkpoint{margin:0 0 8px;color:var(--brick);font-size:11px;letter-spacing:.06em}
+.dialogue-reader-action{min-height:36px;margin:5px 0 0;padding:5px 10px;border:0;border-bottom:1px solid rgba(37,41,37,.56);background:transparent;color:var(--brick);font:600 11px var(--mono);letter-spacing:.08em;text-align:left}
+.dialogue-reader-action:hover:not(:disabled){color:#713728;text-decoration:underline;text-underline-offset:3px}
+.dialogue-reader-action:focus-visible{outline:2px double var(--ink);outline-offset:2px}
+.dialogue-reader-action:active:not(:disabled){transform:translateY(1px)}
+.dialogue-reader-action:disabled{color:#706c60;opacity:.72}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}

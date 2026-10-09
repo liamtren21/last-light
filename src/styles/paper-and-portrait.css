@@ -1,0 +1,15 @@
+/* One material language for every paper surface, including film captions. */
+.dialogue-paper,.crossing-card,.trailer-mobile-caption{position:relative;background:#f1e5ce url('/assets/ui/paper-grain.svg') repeat;border:0;outline:0;box-shadow:none;clip-path:none}
+.crossing-card::after,.trailer-mobile-caption::after{content:"";position:absolute;inset:0;background:url('/assets/ui/paper-frame-v2.svg') center/100% 100% no-repeat;pointer-events:none}
+.dialogue-paper>.ink-frame{content:url('/assets/ui/paper-frame-v2.svg')}
+.crossing-card{padding:38px 46px}
+.crossing-secondary{display:block;width:max-content;max-width:100%;margin:12px 0 0;line-height:1.4;text-align:left}
+.crossing-primary{background:transparent url('/assets/ui/send-stamp.svg') center/100% 100% no-repeat;border:0}
+/* Size both axes together. Alpha below the waist ends behind the paper. */
+.scene-art{container-type:size}
+.scene-art .mira-stage{--mira-size:min(62cqw,125cqh);width:var(--mira-size);height:var(--mira-size);max-width:none;aspect-ratio:1;right:7%;bottom:calc(var(--mira-size) * -.20)}
+.scene-art .mira-stage .mira-portrait.mira-sprite{inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;object-position:center}
+.scene-art .mira-stage:has(.mira-sprite[data-expression]:not([data-expression="scene"])){bottom:calc(var(--mira-size) * -.26)}
+@media(max-width:700px){.crossing-card{padding:28px 26px}.scene-art .mira-stage{--mira-size:min(112cqw,125cqh);right:-10%;bottom:calc(var(--mira-size) * -.20)}}
+html[data-keyboard=open] .scene-art .mira-stage{--mira-size:min(70cqw,125cqh);width:var(--mira-size);height:var(--mira-size);max-width:none;bottom:calc(var(--mira-size) * -.20)}
+

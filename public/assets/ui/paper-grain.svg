@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+ <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".48" numOctaves="3" seed="23" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".13"/></feComponentTransfer></filter>
+ <rect width="512" height="512" fill="#f1e5ce"/>
+ <rect width="512" height="512" filter="url(#paper)" opacity=".65"/>
+ <g fill="#7b6550" opacity=".13"><circle cx="43" cy="87" r=".65"/><circle cx="172" cy="248" r=".5"/><circle cx="426" cy="104" r=".7"/><circle cx="301" cy="381" r=".6"/><circle cx="78" cy="459" r=".55"/><circle cx="483" cy="312" r=".6"/></g>
+ <g stroke="#927c63" stroke-width=".5" opacity=".12"><path d="M79 160l3 2m147-98l2-3m106 193l3 1M24 321l3-1m370 128l2 3"/></g>
+</svg>

@@ -1,0 +1,59 @@
+name: last-light-production
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: last_light
+      POSTGRES_DB: last_light
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a dedicated production password}
+    volumes: [last_light_db:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U last_light -d last_light']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Use PostgreSQL db hostname in production env}
+      DATABASE_SSL: disable
+      NODE_ENV: production
+    expose: ['4329']
+    depends_on:
+      db: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:4329/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+  worker:
+    build: .
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Use PostgreSQL db hostname in production env}
+      DATABASE_SSL: disable
+      NODE_ENV: production
+    command: [node, node_modules/tsx/dist/cli.mjs, server/memory/worker.ts]
+    depends_on:
+      db: {condition: service_healthy}
+  edge:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      LAST_LIGHT_DOMAIN: ${LAST_LIGHT_DOMAIN:?Set the real DNS hostname}
+    ports: ['80:80', '443:443', '443:443/udp']
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app: {condition: service_healthy}
+volumes:
+  last_light_db:
+  caddy_data:
+  caddy_config:

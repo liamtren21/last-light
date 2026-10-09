@@ -1,0 +1,12 @@
+/* Visual-viewport keyboard sizing, independent of layout viewport/dvh. */
+@media(max-width:700px){
+ html[data-keyboard=open] .game-shell{position:fixed;top:var(--keyboard-top);left:0;width:100%;height:var(--keyboard-height);min-height:0;padding-bottom:env(safe-area-inset-bottom,0px);grid-template-rows:minmax(140px,1fr) auto}
+ html[data-keyboard=open] .game-shell .dialogue-paper{min-height:0;max-height:calc(var(--keyboard-height) - 157px);margin-bottom:0;overflow:auto}
+ html[data-keyboard=open] .game-shell .composer{position:sticky;bottom:0;z-index:4;background:var(--paper-light) url('/assets/ui/paper-grain.svg');padding-top:5px}
+ html[data-keyboard=open] .cooperation-panel{max-height:calc(var(--keyboard-height) * .3)}
+ html[data-keyboard=open] :is(input,textarea){scroll-margin-block:8px}
+ html[data-keyboard=open] .dialogue-paper{scroll-padding-bottom:72px;scroll-padding-top:8px}
+ html[data-keyboard=open] .mira-stage{width:min(70vw,220px);max-width:70vw;bottom:-35%}
+ html[data-keyboard=open] .crossing-gate{inset:auto 0;top:var(--keyboard-top);height:var(--keyboard-height)}
+ html[data-keyboard=open] .crossing-card{max-height:calc(var(--keyboard-height) - 48px)}
+}

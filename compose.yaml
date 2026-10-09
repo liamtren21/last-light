@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:17-alpine
+    ports: ["127.0.0.1:54329:5432"]
+    environment:
+      POSTGRES_USER: last_light
+      POSTGRES_DB: last_light
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a project-specific password}
+    volumes:
+      - last_light_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U last_light -d last_light"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    env_file: .env
+    environment: {DATABASE_SSL: disable}
+    ports: ["127.0.0.1:4329:4329"]
+    depends_on:
+      db: {condition: service_healthy}
+  worker:
+    build: .
+    env_file: .env
+    environment: {DATABASE_SSL: disable}
+    command: ["node", "node_modules/tsx/dist/cli.mjs", "server/memory/worker.ts"]
+    depends_on:
+      db: {condition: service_healthy}
+volumes:
+  last_light_db:
